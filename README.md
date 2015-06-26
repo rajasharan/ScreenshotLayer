@@ -23,15 +23,15 @@ Swipe from left or right edges of the screen.
 </com.rajasharan.layout.ScreenshotLayer>
 ```
 
-**Use ScreenshotListener for success/error messages**
+**Use ScreenshotListener for success/error messages** ([MainActivity.java](/demo/src/main/java/com/rajasharan/demo/MainActivity.java))
 ```java
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_main);
-root = (ScreenshotLayer) findViewById(R.id.layer);
-root.setScreenshotListener(new ScreenshotLayer.ScreenshotListener() {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    root = (ScreenshotLayer) findViewById(R.id.layer);
+    root.setScreenshotListener(new ScreenshotLayer.ScreenshotListener() {
         @Override
         public void onScreenshotSaved(String path) {
             Toast.makeText(MainActivity.this, "Screenshot saved in " + path, Toast.LENGTH_SHORT).show();
