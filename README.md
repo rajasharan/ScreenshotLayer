@@ -13,12 +13,35 @@ Swipe from left or right edges of the screen.
 <com.rajasharan.layout.ScreenshotLayer
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rearrangeable_layout"
-    android:layout_width="match_parent"
+    android:id="@+id/layer"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     >
 
     <!-- Add main layout here -->
 
 </com.rajasharan.layout.ScreenshotLayer>
+```
+
+**Use ScreenshotListener for success/error messages**
+```java
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+root = (ScreenshotLayer) findViewById(R.id.layer);
+root.setScreenshotListener(new ScreenshotLayer.ScreenshotListener() {
+        @Override
+        public void onScreenshotSaved(String path) {
+            Toast.makeText(MainActivity.this, "Screenshot saved in " + path, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onScreenshotError(String reason) {
+            Toast.makeText(MainActivity.this, "Screenshot failed: " + reason, Toast.LENGTH_SHORT).show();
+        }
+    });
+}
+
 ```
