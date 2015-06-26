@@ -13,9 +13,9 @@ Swipe from left or right edges of the screen.
 <com.rajasharan.layout.ScreenshotLayer
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rearrangeable_layout"
-    android:layout_width="match_parent"
+    android:id="@+id/layer"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     >
 
     <!-- Add main layout here -->
