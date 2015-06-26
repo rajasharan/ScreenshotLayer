@@ -1,0 +1,72 @@
+<com.rajasharan.layout.ScreenshotLayer
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layer"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:text="@string/screenshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_dark"
+            />
+
+        <TextView
+            android:text="@string/screenshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textSize="50sp"
+            android:background="@android:color/holo_green_dark"
+            />
+
+        <TextView
+            android:text="@string/screenshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textSize="30sp"
+            android:background="@android:color/holo_orange_dark"
+            />
+
+        <TextView
+            android:text="@string/screenshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textSize="25sp"
+            android:background="@android:color/holo_blue_light"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/screenshot"
+            />
+        <TextView
+            android:text="@string/screenshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:background="@android:color/holo_green_dark"
+            android:layout_margin="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+</com.rajasharan.layout.ScreenshotLayer>
