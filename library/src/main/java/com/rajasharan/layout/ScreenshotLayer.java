@@ -188,24 +188,18 @@ public class ScreenshotLayer extends ViewGroup implements Handler.Callback {
                 }
                 break;
             case MODE_SNAP:
-                Bitmap bitmap = drawBitmap(canvas, w, h);
-                if (bitmap != null) {
-                    mHandler.sendMessage(Message.obtain(mHandler, WHAT_SAVE_MESSAGE, bitmap));
-                    mScreenshotMode = MODE_DELAY;
-                } else {
-                    mScreenshotMode = MODE_RESET;
-                    if (mListener != null) {
-                        mListener.onScreenshotError("View Bitmap returned null");
-                    }
-                }
-                invalidate();
+                Bitmap bitmap = Bitmap.createBitmap((int)w, (int)h, Bitmap.Config.ARGB_8888);
+                Canvas newCanvas = new Canvas(bitmap);
+                super.dispatchDraw(newCanvas);
+                mHandler.sendMessage(Message.obtain(mHandler, WHAT_SAVE_MESSAGE, bitmap));
+                mScreenshotMode = MODE_DELAY;
                 break;
             case MODE_DELAY:
-                drawBitmap(canvas, w, h);
+                drawScaledBitmap(canvas, w, h);
         }
     }
 
-    private Bitmap drawBitmap(Canvas canvas, float w, float h) {
+    private void drawScaledBitmap(Canvas canvas, float w, float h) {
         int savepoint = canvas.save();
         canvas.scale(mScale, mScale);
         View view = getChildAt(0);
@@ -220,7 +214,6 @@ public class ScreenshotLayer extends ViewGroup implements Handler.Callback {
             canvas.drawBitmap(bitmap, rectF.left, rectF.top, mPhotoPaint);
         }
         canvas.restoreToCount(savepoint);
-        return bitmap;
     }
 
     @Override
