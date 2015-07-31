@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.*;
@@ -85,6 +86,7 @@ public class ScreenshotLayer extends ViewGroup implements Handler.Callback {
         mLayerPaint.setColor(Color.BLACK);
         mLayerPaint.setAlpha(75);
 
+        setBackground(new ColorDrawable(Color.WHITE));
         initHandler();
     }
 
@@ -190,6 +192,7 @@ public class ScreenshotLayer extends ViewGroup implements Handler.Callback {
             case MODE_SNAP:
                 Bitmap bitmap = Bitmap.createBitmap((int)w, (int)h, Bitmap.Config.ARGB_8888);
                 Canvas newCanvas = new Canvas(bitmap);
+                getBackground().draw(newCanvas);
                 super.dispatchDraw(newCanvas);
                 mHandler.sendMessage(Message.obtain(mHandler, WHAT_SAVE_MESSAGE, bitmap));
                 mScreenshotMode = MODE_DELAY;
